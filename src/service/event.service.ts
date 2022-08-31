@@ -12,16 +12,10 @@ export const createEvent = async (
     }
 }
 export const getEvents = async () => {
-    const metricsLabels = {
-        operation: "getEvents",
-    }
-    const timer = databaseResponseTimeHistogram.startTimer()
     try {
-        const events = await EventModel.find()
-        timer({ ...metricsLabels, success: "true" })
+        const events = await EventModel.find().select("-__v")
         return events
     } catch (e: any) {
-        timer({ ...metricsLabels, success: "false" })
         throw new Error(e)
     }
 }
