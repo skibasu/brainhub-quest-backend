@@ -9,5 +9,5 @@ interface IDefaults {
 export default {
     port: 1337,
     host: "localhost",
-    dbUri: "mongodb+srv://skibasu:Klementyna5@cluster0.r8wot.mongodb.net/sample?retryWrites=true&w=majority",
+    dbUri: process.env.MONGO_URI,
 } as IDefaults
