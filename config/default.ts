@@ -1,13 +1,13 @@
+import dotenv from "dotenv"
+
 interface IDefaults {
     port: number
     host: string
     dbUri: string
-    //dbConfig: any
-    //  saltWorkFactor: number
 }
-
+dotenv.config()
 export default {
-    port: 1337,
-    host: "localhost",
-    dbUri: process.env.MONGO_URI,
+    port: process.env.APP_PORT || 1337,
+    host: process.env.APP_HOST || "localhost",
+    dbUri: process.env.PP_MONGODB_URI || "",
 } as IDefaults
