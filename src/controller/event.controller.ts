@@ -9,7 +9,7 @@ export const createEventHandler = async (
 ) => {
     try {
         const event = await createEvent(req.body)
-        return res.send(event.toJSON())
+        return res.send({ message: "Event Created" })
     } catch (e: any) {
         Logger.error(e.message)
         return res.status(409).send(e.message)
@@ -22,9 +22,7 @@ export const getEventHandler = async (
 ) => {
     const events = await getEvents()
     if (events.length === 0) {
-        return res
-            .status(404)
-            .send({ message: "Nothing found.", statusCode: res.status(404) })
+        return res.status(404).send({ message: "Nothing found." })
     }
     return res.send({ events })
 }
