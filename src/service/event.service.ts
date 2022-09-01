@@ -1,6 +1,5 @@
 import { DocumentDefinition } from "mongoose"
 import EventModel, { EventDocument } from "../models/event.model"
-import { databaseResponseTimeHistogram } from "../utils/metrics"
 
 export const createEvent = async (
     input: DocumentDefinition<Omit<EventDocument, "createdAt" | "updatedAt">>
