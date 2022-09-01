@@ -7,6 +7,7 @@ export interface EventDocument extends mongoose.Document {
     createdAt: Date
     updatedAt: Date
 }
+
 const eventSchema = new mongoose.Schema(
     {
         email: {
@@ -22,7 +23,9 @@ const eventSchema = new mongoose.Schema(
             required: true,
         },
     },
-    { timestamps: true }
+    {
+        timestamps: true,
+    }
 )
 
 const EventModel = mongoose.model("Event", eventSchema)
