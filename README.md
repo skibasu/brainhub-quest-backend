@@ -1,4 +1,4 @@
-Before start change name of file ".env-sample' to '.env'
+Before start change name of ".env-sample' file to '.env'
 
 Setup your MongoDB and server configuration in '.env' file
 
