@@ -3,6 +3,7 @@ import config from "config"
 import Logger from "../utils/logger"
 import routes from "../routes/routes"
 import mongoose from "mongoose"
+import cors from "cors"
 
 export default class Server {
     private port: number
@@ -40,6 +41,7 @@ export default class Server {
         const app = express()
         app.use(express.json())
         app.use(express.urlencoded({ extended: false }))
+        app.use(cors())
         routes(app)
         return app
     }

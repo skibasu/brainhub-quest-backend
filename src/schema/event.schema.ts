@@ -1,9 +1,6 @@
 import { object, string, date, InferType, setLocale } from "yup"
 import parse from "date-fns/parse"
 
-const tommarow = new Date()
-tommarow.setDate(tommarow.getDate() + 1)
-
 setLocale({
     mixed: {
         default: { message: "Field invalid." },
@@ -37,8 +34,7 @@ export const createEventSchema = object({
             return result
         })
         .typeError({ message: "Date type is invalid.", error: true })
-        .required()
-        .min(tommarow, { message: "Date is too early.", error: true }),
+        .required(),
 })
 
 export type CreateEventInput = InferType<typeof createEventSchema>
