@@ -12,7 +12,7 @@ export const createEvent = async (
 }
 export const getEvents = async () => {
     try {
-        const events = await EventModel.find().select("-__v")
+        const events = await EventModel.find().sort("date").select("-__v")
         return events
     } catch (e: any) {
         throw new Error(e)

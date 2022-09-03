@@ -83,6 +83,10 @@ describe("event", () => {
         })
         describe("given : no valid error message", () => {
             it("should not create event, returns status 400 and error message", async () => {
+                const createEventServiceMock = jest
+                    .spyOn(EventService, "createEvent")
+                    //@ts-ignore
+                    .mockReturnValueOnce(eventPayloadMessage)
                 const { body } = await supertest(app)
                     .post("/api/event")
                     .send(notValidEventInput)
@@ -90,6 +94,9 @@ describe("event", () => {
 
                 expect(body[0]).toHaveProperty("message")
                 expect(body[0].error).toBeTruthy()
+                expect(createEventServiceMock).not.toHaveBeenCalledWith(
+                    eventInput
+                )
             })
         })
     })
