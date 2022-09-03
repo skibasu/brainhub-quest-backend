@@ -1,0 +1,42 @@
+{
+    "info": {
+        "_postman_id": "b5fc1b21-fa46-4e36-8925-cf61c2231d42",
+        "name": "Brainhub",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Post Event",
+            "id": "05739d88-458c-4079-ad9d-506eee560ac5",
+            "protocolProfileBehavior": {
+                "disabledSystemHeaders": { "content-type": true }
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"name\":\"New Event\", \"email\": \"test@test.com\", \"date\":\"09/12/1999\"}"
+                },
+                "url": "localhost:1337/api/event"
+            },
+            "response": []
+        },
+        {
+            "name": "Get All Events",
+            "id": "b850c87f-c6f3-4ef9-be14-732bd94151d3",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": "localhost:1337/api/events"
+            },
+            "response": []
+        }
+    ]
+}
